@@ -1,5 +1,6 @@
 service: serverless-hello-world # Name of our service within AWS
-
+tenant: wutangpaul
+app: serverless-tests-app
 frameworkVersion: ">=1.4.0 <2.0.0"
 
 provider:
