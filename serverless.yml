@@ -1,0 +1,27 @@
+service: serverless-hello-world # Name of our service within AWS
+
+frameworkVersion: ">=1.4.0 <2.0.0"
+
+provider:
+  name: aws # Cloud service provider
+  runtime: nodejs10.x # Node.js Runtime
+  stage: dev # Development ENV
+  region: us-west-2 # AWS Region
+
+functions:
+  hello: # Lambda function
+    handler: index.hello # The handler for this function
+    events: # Event that triggers this Lambda
+      - http: get hello # Path for this endpoint
+        method: get # HTTP method
+        cors: # Everything this line and after is for CORS support
+          origin: "*"
+          headers:
+            - Content-Type
+            - X-Amz-Date
+            - Authorization
+            - X-Api-Key
+            - X-Amz-Security-Token
+            - X-Amz-User-Agent
+            - X-Requested-With
+          allowCredentials: false
